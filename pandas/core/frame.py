@@ -4224,6 +4224,8 @@ class DataFrame(NDFrame):
         DataFrame.apply : For operations on rows/columns
 
         """
+        if self.empty:
+            return self
 
         # if we have a dtype == 'M8[ns]', provide boxed values
         def infer(x):
